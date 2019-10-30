@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Test</title>
+</head>
+<body>
+
+  <h1>Entrance test</h1>
+
+  <p>Returns the nth number in the Fibonacci sequence.</p>
+  <input id="nFib"><button id="btnOk">Ok</button>
+  <br>
+  <br>
+  <p>Given a column number, return its alphabetical column id.</p>
+  <input id="colNum"><button id="btnCol">Ok</button>
+
+
+    <script>
+
+      var inputFib = document.querySelector('input#nFib');
+      var btnFib = document.querySelector('button#btnOk');
+
+      btnFib.onclick = function(){
+        var n = inputFib.value;
+        return alert(fib(n) + ' in the Fibonacci sequence.');
+      }
+      
+      function fib(n){
+          let arr = [0, 1];
+          for (let i = 2; i < n + 1; i++){
+            arr.push(arr[i - 2] + arr[i -1])
+          }
+         return arr[n];
+      }
+
+      var inputCol = document.querySelector('input#colNum');
+      var btnCol = document.querySelector('button#btnCol');
+
+      btnCol.onclick = function(){
+        var num = inputCol.value;
+        return alert('The alphabetical column id: ' + nomeColuna(num));
+
+      }
+
+      function nomeColuna(num) {
+        for (var ret = '', a = 1, b = 26; (num -= a) >= 0; a = b, b *= 26) {
+          ret = String.fromCharCode(parseInt((num % b) / a) + 65) + ret;
+        }
+        return ret;
+      }
+
+    </script>
+  
+</body>
+</html>
+
+
+
+
+
